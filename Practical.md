@@ -188,6 +188,27 @@ f3.close()
 ```
 # Practical 10
 ``` bash
+import math
+
+class Point:
+    def __init__(self,x,y):
+        self.x = x
+        self.y = y
+
+    def display(self):
+        print(f"Point({self.x}, {self.y})")
+
+    def distance(self, other_points):
+        distance = math.sqrt((self.x-other_points.x)**2 + (self.y - other_points.y)**2)
+        return distance
+
+point1 = Point(3,4)
+point2 = Point(6,8)
+
+point1.display()
+point2.display()
+distance = point1.distance(point2)
+print("The distance between Point({}, {}) and Point({}, {}) is: {}".format(point1.x,point1.y,point2.x,point2.y,distance))
 ```
 # Practical 11
 ``` bash
@@ -232,4 +253,16 @@ print("Min= ",d)
 ```
 # Practical 13
 ``` bash
+def handleName(name):
+    try:
+        if any(char.isdigit() for char in name):
+            raise ValueError("Name can't contain digits")
+        elif not name.isalpha():
+            raise ValueError("Name con't contain spechil character")
+        print("Name Entered: ",name)
+    except ValueError as e:
+        print("Error",e)
+
+name = input("Enter your name: ")
+handleName(name)
 ```
